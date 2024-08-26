@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JioServicesUI", "JioServicesUI\JioServicesUI.csproj", "{7F87068E-5720-425C-A0EF-DFA4B14ECFF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JioServicesAPI", "JioServicesAPI\JioServicesAPI.csproj", "{019AA518-8A9A-4427-93BF-BEEF103058B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIMCardOfferService", "SIMCardOfferService\SIMCardOfferService.csproj", "{57C286E7-EA93-4C17-AE53-A77063C9C2BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F87068E-5720-425C-A0EF-DFA4B14ECFF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F87068E-5720-425C-A0EF-DFA4B14ECFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F87068E-5720-425C-A0EF-DFA4B14ECFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F87068E-5720-425C-A0EF-DFA4B14ECFF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{019AA518-8A9A-4427-93BF-BEEF103058B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{019AA518-8A9A-4427-93BF-BEEF103058B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{019AA518-8A9A-4427-93BF-BEEF103058B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{019AA518-8A9A-4427-93BF-BEEF103058B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C286E7-EA93-4C17-AE53-A77063C9C2BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C286E7-EA93-4C17-AE53-A77063C9C2BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C286E7-EA93-4C17-AE53-A77063C9C2BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C286E7-EA93-4C17-AE53-A77063C9C2BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54CD9C2D-1903-4D3C-B8B7-34015636D3E9}
+	EndGlobalSection
+EndGlobal

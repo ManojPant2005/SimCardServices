@@ -1,0 +1,95 @@
+﻿@page "/database-config"
+@inject HttpClient Http
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager Navigation
+
+<h3>Database Configuration</h3>
+
+<EditForm Model="@databaseConfig" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label for="databaseType">Database Type</label>
+        <select id="databaseType" @bind="databaseConfig.DatabaseType">
+            <option value="">Select Database</option>
+            <option>SQLServer</option>
+            <option>MySQL</option>
+            <option>Oracle</option>
+            <option>SQLite</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="connectionString">Connection String</label>
+        <InputText id="connectionString" @bind-Value="databaseConfig.ConnectionString" />
+    </div>
+
+    <div>
+        <label for="tableName">Table Name</label>
+        <InputText id="tableName" @bind-Value="databaseConfig.TableName" />
+    </div>
+
+    <div>
+        <label for="columns">Columns (comma-separated)</label>
+        <InputText id="columns" @bind-Value="databaseConfig.Columns" />
+    </div>
+
+    <button type="submit">Submit</button>
+
+    @if (successMessage != null)
+    {
+        <div class="alert alert-success mt-3">
+            @successMessage
+        </div>
+    }
+
+    @if (errorMessage != null)
+    {
+        <div class="alert alert-danger mt-3">
+            @errorMessage
+        </div>
+    }
+</EditForm>
+
+@code {
+    private DatabaseConfig databaseConfig = new();
+    private string successMessage;
+    private string errorMessage;
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            var response = await Http.PostAsJsonAsync("https://localhost:7231/api/DatabaseConfiguration", databaseConfig);
+
+            if (response.IsSuccessStatusCode)
+            {
+                successMessage = "Database configuration has been successfully submitted!";
+                errorMessage = null;
+
+                // Optionally clear form fields
+                databaseConfig = new DatabaseConfig();
+            }
+            else
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                errorMessage = $"Error: {response.ReasonPhrase} - {errorContent}";
+                successMessage = null;
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"Exception: {ex.Message}";
+            successMessage = null;
+        }
+    }
+
+    public class DatabaseConfig
+    {
+        public string DatabaseType { get; set; }
+        public string ConnectionString { get; set; }
+        public string TableName { get; set; }
+        public string Columns { get; set; }
+    }
+}
